@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtb7hy3hgbl53"]
+[gd_scene load_steps=5 format=3 uid="uid://dtb7hy3hgbl53"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_bumov"]
+[ext_resource type="Script" path="res://ball_controller.gd" id="1_e7drf"]
+[ext_resource type="PhysicsMaterial" uid="uid://cxfwwhm2s2j6m" path="res://bounce_mat.tres" id="1_hqvr3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u5q3j"]
 
-[node name="ball" type="MeshInstance3D"]
-mesh = SubResource("SphereMesh_bumov")
+[sub_resource type="SphereMesh" id="SphereMesh_yp7yl"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="ball" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 5
+mass = 0.5
+physics_material_override = ExtResource("1_hqvr3")
+max_contacts_reported = 99999
+contact_monitor = true
+script = ExtResource("1_e7drf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("SphereShape3D_u5q3j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_yp7yl")
