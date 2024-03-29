@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2dx772rundg8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pvgnh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8mpq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2npg1"]
+
+[node name="main" type="Node3D"]
+
+[node name="hex" type="Node3D" parent="."]
+
+[node name="wall1" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(5.6, 0, 0, 0, 1, 0, 0, 0, 0.08, 0, 0.5, -5)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="wall2" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(2.915, 0, 0.069282, 0, 1, 0, -5.04893, 0, 0.04, -4.225, 0.5, -2.49)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="wall3" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(2.915, 0, -0.069282, 0, 1, 0, 5.04893, 0, 0.04, 4.22, 0.5, -2.49)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="wall4" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(5.6, 0, 0, 0, 1, 0, 0, 0, 0.08, 0, 0.5, 5)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="wall5" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(2.89921, -0.000351087, 0.0692884, 0.0015877, 1, 1.97897e-05, -5.02341, 0.000113422, 0.039989, 4.22, 0.5, 2.51)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="wall6" type="MeshInstance3D" parent="hex"]
+transform = Transform3D(2.915, 0, -0.069282, 0, 1, 0, 5.04893, 0, 0.04, -4.21, 0.5, 2.51)
+mesh = SubResource("BoxMesh_pvgnh")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 0.2, 0, 0, 0, 12, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_8mpq8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_2npg1")
