@@ -1,9 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2dx772rundg8"]
+[gd_scene load_steps=14 format=3 uid="uid://c2dx772rundg8"]
 
 [ext_resource type="PackedScene" uid="uid://dtb7hy3hgbl53" path="res://ball.tscn" id="1_7cn6u"]
 [ext_resource type="PhysicsMaterial" uid="uid://d14cntai86hum" path="res://wall_mat.tres" id="1_kq378"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhwsk"]
+albedo_color = Color(0.0235294, 0.180392, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_pvgnh"]
+material = SubResource("StandardMaterial3D_dhwsk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lhhao"]
 
@@ -17,16 +21,42 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1vw5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eumil"]
+albedo_color = Color(0.0392157, 0.0627451, 0.133333, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_8mpq8"]
+material = SubResource("StandardMaterial3D_eumil")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2npg1"]
 
 [node name="main" type="Node3D"]
 
-[node name="ball" parent="." instance=ExtResource("1_7cn6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+[node name="ball_1" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, -1)
+
+[node name="ball_2" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.3, 1)
+
+[node name="ball_3" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.3, 1)
+
+[node name="ball_4" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.3, -1)
+
+[node name="ball_5" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.3, 0)
+
+[node name="ball_6" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -2)
+
+[node name="ball_7" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, 0)
+
+[node name="ball_8" parent="." instance=ExtResource("1_7cn6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 2)
 
 [node name="hex" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="wall1" type="MeshInstance3D" parent="hex"]
 transform = Transform3D(5.6, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.5, -5)
