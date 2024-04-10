@@ -10,7 +10,7 @@ mesh = SubResource("CylinderMesh_a8lw4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["exit_hole"]]
 collision_layer = 16
-collision_mask = 10
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0341707, 0)
