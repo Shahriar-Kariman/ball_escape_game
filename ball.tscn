@@ -7,7 +7,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u5q3j"]
 
-[node name="ball" type="RigidBody3D"]
+[node name="ball" type="RigidBody3D" groups=["balls"]]
 collision_layer = 2
 collision_mask = 15
 mass = 0.5

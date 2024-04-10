@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2dx772rundg8"]
+[gd_scene load_steps=22 format=3 uid="uid://c2dx772rundg8"]
 
 [ext_resource type="PackedScene" uid="uid://dtb7hy3hgbl53" path="res://ball.tscn" id="1_7cn6u"]
 [ext_resource type="PhysicsMaterial" uid="uid://d14cntai86hum" path="res://wall_mat.tres" id="1_kq378"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://orbit_camera_controller.gd" id="9_dnxlg"]
 [ext_resource type="Script" path="res://first_person_camera_controller.gd" id="10_f2i8k"]
 [ext_resource type="Script" path="res://spline_camera_controller.gd" id="11_gjbqk"]
+[ext_resource type="PackedScene" uid="uid://cpag2bbqmorqr" path="res://exit_hole.tscn" id="13_s02w1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lhhao"]
 
@@ -26,6 +27,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1vw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2npg1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnio4"]
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_xm1qk")
@@ -174,7 +177,7 @@ script = ExtResource("7_y57de")
 target = NodePath("../../player")
 
 [node name="OrbitCamera" type="Camera3D" parent="cameras" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9, 0)
+transform = Transform3D(1, 0, 0, 0, 0.70834, 0.705872, 0, -0.705872, 0.70834, 0, 4.756, 5.668)
 script = ExtResource("9_dnxlg")
 target = NodePath("../../player")
 
@@ -186,3 +189,16 @@ target = NodePath("../../player")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9, 0)
 script = ExtResource("11_gjbqk")
 target = NodePath("../../player")
+
+[node name="exit_hole" parent="." instance=ExtResource("13_s02w1")]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.0891923, 0)
+
+[node name="game_boundry" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="game_boundry"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+shape = SubResource("BoxShape3D_hnio4")
+
+[connection signal="body_exited" from="game_boundry" to="." method="_on_game_boundry_body_exited"]

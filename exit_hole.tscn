@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpag2bbqmorqr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a8lw4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ecx1k"]
+
+[node name="exit_hole" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("CylinderMesh_a8lw4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["exit_hole"]]
+collision_layer = 16
+collision_mask = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0341707, 0)
+shape = SubResource("CylinderShape3D_ecx1k")

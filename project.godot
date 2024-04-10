@@ -48,3 +48,5 @@ left={
 3d_physics/layer_2="ball"
 3d_physics/layer_3="wall"
 3d_physics/layer_4="player"
+3d_physics/layer_5="exit_hole"
+3d_physics/layer_6="game_boundry"

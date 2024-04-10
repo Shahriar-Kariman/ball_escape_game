@@ -4,7 +4,7 @@ func _ready():
 	var forceDirection = Vector3(randf_range(-1, 0), 0, randf_range(-1, 0))
 	forceDirection = forceDirection.normalized()
 
-	var forcePower = 3000;
+	var forcePower = 1500;
 	var initForce = forcePower * forceDirection
 
 	#initial push onto the ball in the forceDirection with forcePower
@@ -16,8 +16,10 @@ func _physics_process(_delta):
 	var collidingBodies = $".".get_colliding_bodies()
 	for body in collidingBodies:
 		if not body.is_in_group("ground"):
-			print("sphere collided with %s" % body.name)
 			$AudioStreamPlayer.play()
+		if body.is_in_group("exit_hole"):
+			Game.ball_count -= 1
+			queue_free()
 	# applying constant force
 	var myVelocity = linear_velocity.normalized()
 	var forcePower = 1
