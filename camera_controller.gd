@@ -41,6 +41,8 @@ func _process(delta):
 		followCamera.make_current()
 	if Input.is_action_just_pressed("spring_cam"):
 		springCamera.make_current()
+	if Input.is_action_just_pressed("orbit_cam"):
+		orbitCamera.make_current()
 	if Input.is_action_just_pressed("first_person_cam"):
 		firstPersonCamera.make_current()
 	if Input.is_action_just_pressed("spline_cam"):

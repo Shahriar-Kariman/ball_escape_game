@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpag2bbqmorqr"]
+[gd_scene load_steps=4 format=3 uid="uid://cpag2bbqmorqr"]
+
+[ext_resource type="Script" path="res://exit_hole.gd" id="1_x2air"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a8lw4"]
 
@@ -7,6 +9,7 @@
 [node name="exit_hole" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.1, 0)
 mesh = SubResource("CylinderMesh_a8lw4")
+script = ExtResource("1_x2air")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["exit_hole"]]
 collision_layer = 16
