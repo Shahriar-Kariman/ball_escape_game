@@ -3,7 +3,7 @@ class_name Game
 enum GAMESTATES {begin, playing, win, lose}
 
 static var GAME_STATE = GAMESTATES.begin
-static var ball_count = 4
+static var ball_count = 8
 
 func _ready():
 	if GAME_STATE == GAMESTATES.begin:

@@ -19,7 +19,6 @@ func _physics_process(delta):
 			$AudioStreamPlayer.play()
 		if body.is_in_group("exit_hole"):
 			Game.GAME_STATE = Game.GAMESTATES.lose
-			print("Player collisions")
 			get_tree().change_scene_to_file("res://main_menu.tscn")
 	# movments
 	var forceDirection = Vector3(0,0,0)
