@@ -35,4 +35,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("static_cam"):
+		staticCamera.make_current()
+	if Input.is_action_just_pressed("follow_cam"):
+		followCamera.make_current()
+	if Input.is_action_just_pressed("spring_cam"):
+		springCamera.make_current()
+	if Input.is_action_just_pressed("first_person_cam"):
+		firstPersonCamera.make_current()
+	if Input.is_action_just_pressed("spline_cam"):
+		splineCamera.make_current()

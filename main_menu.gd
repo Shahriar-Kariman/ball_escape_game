@@ -5,6 +5,8 @@ enum GAMESTATES {begin, playing, win, lose}
 static var GAME_STATE = GAMESTATES.begin
 static var ball_count = 8
 
+@export var balls_to_win = 4
+
 func _ready():
 	if GAME_STATE == GAMESTATES.begin:
 		$PanelContainer/MarginContainer/VBoxContainer/Title.text = "Lets play with some balls!"
@@ -16,7 +18,7 @@ func _ready():
 #for starting
 func _on_start_pressed():
 	Game.GAME_STATE = Game.GAMESTATES.playing
-	ball_count = 4
+	ball_count = balls_to_win
 	get_tree().change_scene_to_file("res://main.tscn")
 
 #for quitting

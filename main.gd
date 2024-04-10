@@ -11,5 +11,4 @@ func _process(_delta):
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 
 func _on_game_boundry_body_exited(body):
-	Game.ball_count -= 1
 	body.queue_free()

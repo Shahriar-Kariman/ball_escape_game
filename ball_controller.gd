@@ -18,7 +18,7 @@ func _physics_process(_delta):
 		if not body.is_in_group("ground"):
 			$AudioStreamPlayer.play()
 		if body.is_in_group("exit_hole"):
-			Game.ball_count -= 1
+			#Game.ball_count -= 1
 			queue_free()
 	# applying constant force
 	var myVelocity = linear_velocity.normalized()
@@ -28,3 +28,6 @@ func _physics_process(_delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func _exit_tree():
+	Game.ball_count -= 1
